@@ -1,11 +1,7 @@
-<mat-toolbar>
-  <span>Posts</span>
-</mat-toolbar>
-<mat-nav-list>
-  <a mat-list-item [routerLink]="['/posts', post.id]" *ngFor="let post of posts">
-    <h3 matLine>{{ post.title }}</h3>
-    <p matLine>
-      <span>{{post.body}}</span>
-    </p>
-  </a>
-</mat-nav-list>
+<mat-card [routerLink]="['/posts', post.id]" class="blog-post pointable" *ngFor="let post of posts">
+  <mat-card-title> {{ post.title }} </mat-card-title>
+  <mat-card-content>
+    <img mat-card-md-image src="/assets/img/blog-post.jpeg" >
+    {{ post.body }}
+  </mat-card-content>
+</mat-card>

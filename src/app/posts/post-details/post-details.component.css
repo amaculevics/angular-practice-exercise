@@ -1,0 +1,9 @@
+.post-comments-wrapper {
+  padding-top: 20px;
+}
+
+.post-comments-wrapper .mat-card {
+  margin: 5px 0;
+}
+
+

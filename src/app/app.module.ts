@@ -1,31 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostsComponent } from './posts/posts.component';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { PostService } from './posts/post.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule,
+    HttpClientModule,
     MatToolbarModule,
-    HttpClientModule
+    MatButtonModule
   ],
-  providers: [
-    PostService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: #eee }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+div.container { max-width: 1200px; padding: 30px 20px; margin: 0 auto; }
+.pointable { cursor: pointer; }
+
+.mat-card.blog-post {
+  margin: 10px 0;
+}
+
+.blog-post .mat-card-content {
+  display: flex;
+}
+
+.blog-post .mat-card-content > img {
+  margin-right: 5px;
+}
