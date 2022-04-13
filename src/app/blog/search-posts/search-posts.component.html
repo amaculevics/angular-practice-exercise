@@ -1,0 +1,6 @@
+<form [formGroup]="searchForm" autocomplete="off" novalidate>
+  <mat-form-field>
+    <mat-label>Search: </mat-label>
+    <input matInput type="text" formControlName="searchTerm" (keyup)="search()">
+  </mat-form-field>
+</form>

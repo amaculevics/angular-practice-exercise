@@ -6,8 +6,3 @@
 .new-message-form * {
   width: 100%;
 }
-
-.alert.alert-danger {
-  color: #f44336;
-  padding-bottom: 5px;
-}

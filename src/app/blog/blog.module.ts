@@ -12,17 +12,21 @@ import { PostService } from './services/post.service';
 import { BlogReducer, BlogEffects } from './store';
 import { FEATURE_KEY } from './store/blog-state';
 import { SharedModule } from '../shared/shared.module';
+import { SearchPostsComponent } from './search-posts/search-posts.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     PostListComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    SearchPostsComponent
   ],
   imports: [
     CommonModule,
     BlogRoutingModule,
     MaterialModule,
     SharedModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(FEATURE_KEY, BlogReducer.blogReducer),
     EffectsModule.forFeature([BlogEffects.BlogEffects]),
   ],

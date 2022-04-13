@@ -27,3 +27,13 @@ export const loadPostFailure = createAction(
   '[Blog] Load Post Failure',
   props<{ error: string }>()
 );
+
+export const search = createAction(
+  '[Blog] Search',
+  props<{ searchTerm: string }>()
+);
+
+export const searchSuccess = createAction(
+  '[Blog] Search Success',
+  props<{ posts: Post[] }>()
+);

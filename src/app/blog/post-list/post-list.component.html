@@ -1,6 +1,7 @@
 <app-toolbar title="Posts"></app-toolbar>
 
 <div class="wrapper">
+  <app-search-posts></app-search-posts>
   <mat-card [routerLink]="['/posts', post.id]" class="blog-post pointable" *ngFor="let post of posts$ | async">
     <mat-card-title> {{ post.title }} </mat-card-title>
     <mat-card-content>

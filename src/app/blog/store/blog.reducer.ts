@@ -46,4 +46,19 @@ export const blogReducer = createReducer<BlogState>(
       currentPost: null,
       errorMessage: action.error
     }
+  }),
+  on(BlogActions.loadPostFailure, (state, action): BlogState => {
+    return {
+      ...state,
+      currentPost: null,
+      errorMessage: action.error
+    }
+  }),
+  on(BlogActions.searchSuccess, (state, action): BlogState => {
+    return {
+      ...state,
+      posts: action.posts,
+      currentPost: null,
+      errorMessage: ''
+    }
   }));
