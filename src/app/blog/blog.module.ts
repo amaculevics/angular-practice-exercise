@@ -1,14 +1,17 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { PostDetailsComponent } from './post-details/post-details.component';
-import { PostRoutingModule } from './blog-routing.module';
-import { PostService } from './post.service';
-import { PostListComponent } from './post-list/post-list.component';
+import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { blogReducer } from './store/blog.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { BlogEffects } from './store/blog.effects';
+
+import { BlogRoutingModule } from './blog-routing.module';
+import { MaterialModule } from '../shared/material.module';
+
+import { PostListComponent } from './post-list/post-list.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { PostService } from './services/post.service';
+import { BlogReducer, BlogEffects } from './store';
+import { FEATURE_KEY } from './store/blog-state';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,11 @@ import { BlogEffects } from './store/blog.effects';
   ],
   imports: [
     CommonModule,
-    PostRoutingModule,
-    StoreModule.forFeature('blog', blogReducer),
-    EffectsModule.forFeature([BlogEffects]),
-    MatCardModule
+    BlogRoutingModule,
+    MaterialModule,
+    SharedModule,
+    StoreModule.forFeature(FEATURE_KEY, BlogReducer.blogReducer),
+    EffectsModule.forFeature([BlogEffects.BlogEffects]),
   ],
   providers: [
     PostService

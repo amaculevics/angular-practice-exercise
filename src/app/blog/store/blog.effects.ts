@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, forkJoin, map, mergeMap, of, tap } from 'rxjs';
-import { PostService } from '../post.service';
-import * as BlogActions from './blog.actions';
+import { catchError, forkJoin, map, mergeMap, of } from 'rxjs';
+import { PostService } from '../services/post.service';
+import { BlogActions } from './';
 
 @Injectable({ providedIn: 'root' })
 export class BlogEffects {

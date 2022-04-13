@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>New Message</h2>
+<mat-dialog-content>
+  <form class="new-message-form" [formGroup]="form" autocomplete="off" novalidate>
+    <div formGroupName="author">
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input matInput id="name" type="text" formControlName="name">
+      </mat-form-field>
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert alert-danger">
+        <div *ngIf="name?.errors?.['required']">
+          Name is required.
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-label>E-mail:</mat-label>
+        <input matInput type="text" formControlName="email">
+      </mat-form-field>
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+        <div *ngIf="email?.errors?.['required']">
+          E-mail is required.
+        </div>
+        <div *ngIf="email?.errors?.['email']">
+          E-mail has wrong format.
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-label>Phone:</mat-label>
+        <input matInput id="name" type="text" formControlName="phone">
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>Message:</mat-label>
+      <textarea matInput formControlName="message"></textarea>
+    </mat-form-field>
+    <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="alert alert-danger">
+      <div *ngIf="message?.errors?.['required']">
+        Message is required.
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="save()">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

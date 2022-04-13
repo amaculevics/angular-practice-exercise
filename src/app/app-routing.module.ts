@@ -6,7 +6,12 @@ const routes: Routes = [
     path: 'posts',
     loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
   },
-  { path: '', redirectTo: '/posts', pathMatch: 'full' }
+  {
+    path: 'guest-book',
+    loadChildren: () => import('./guest-book/guest-book.module').then(m => m.GuestBookModule)
+  },
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: '**', redirectTo: '/posts', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,12 +1,6 @@
-import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
-import { Post } from '../post';
-import * as BlogActions from './blog.actions';
-
-export interface BlogState {
-  posts: Post[],
-  currentPost: Post | null,
-  errorMessage: string | null
-};
+import { createReducer, on } from '@ngrx/store';
+import * as BlogActions from './blog.actions'
+import { BlogState } from './blog-state';
 
 const initialState: BlogState = {
   posts: [],
@@ -14,25 +8,16 @@ const initialState: BlogState = {
   errorMessage: null
 };
 
-const selectBlogFeatureState = createFeatureSelector<BlogState>('blog');
-
-export const selectBlogPosts = createSelector(
-  selectBlogFeatureState,
-  state => state.posts
-);
-
-export const selectBlogPost = createSelector(
-  selectBlogFeatureState,
-  state => state.currentPost
-);
-
-export const selectGetPostsError = createSelector(
-  selectBlogFeatureState,
-  state => state.errorMessage
-);
-
 export const blogReducer = createReducer<BlogState>(
   initialState,
+  on(BlogActions.loadPosts, (state): BlogState => {
+    return {
+      ...state,
+      posts: [],
+      currentPost: null,
+      errorMessage: null
+    }
+  }),
   on(BlogActions.loadPostsSuccess, (state, action): BlogState => {
     return {
       ...state,
@@ -61,5 +46,4 @@ export const blogReducer = createReducer<BlogState>(
       currentPost: null,
       errorMessage: action.error
     }
-  }),
-  );
+  }));

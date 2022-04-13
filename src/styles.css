@@ -5,7 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 div.container { max-width: 1200px; padding: 30px 20px; margin: 0 auto; }
 .pointable { cursor: pointer; }
 
-.mat-card.blog-post {
+.mat-card.blog-post, .mat-card.guest-book {
   margin: 10px 0;
 }
 
@@ -15,4 +15,8 @@ div.container { max-width: 1200px; padding: 30px 20px; margin: 0 auto; }
 
 .blog-post .mat-card-content > img {
   margin-right: 5px;
+}
+
+.wrapper {
+  padding: 10px;
 }

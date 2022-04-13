@@ -1,0 +1,21 @@
+<app-toolbar title="Guest Book">
+  <span context-menu>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="addMessage()">Add Message</button>
+    </mat-menu>
+  </span>
+</app-toolbar>
+<div class="wrapper">
+  <mat-card class="guest-book" *ngFor="let message of guestBookMessages$ | async">
+    <mat-card-title> {{ message.author.name }} </mat-card-title>
+    <mat-card-subtitle> {{ message.author.email }} </mat-card-subtitle>
+    <mat-card-content>
+      {{ message.message }}
+    </mat-card-content>
+  </mat-card>
+
+  <div class="error-message" *ngIf="errorMessage$ | async as errorMessage"> {{ errorMessage }} </div>
+</div>

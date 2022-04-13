@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { Post } from '../post';
-import { BlogActions, BlogReducers } from '../store';
+
+import { Post } from '../models/post';
+import { BlogActions, BlogSelectors } from '../store';
 
 @Component({
   selector: 'app-post-details',
@@ -21,8 +22,8 @@ export class PostDetailsComponent implements OnInit {
       const postId = +params['id'];
       if (postId) {
         this.store.dispatch(BlogActions.loadPost({ id: postId }));
-        this.currentPost$ = this.store.select(BlogReducers.selectBlogPost)
-        this.errorMessage$ = this.store.select(BlogReducers.selectGetPostsError);
+        this.currentPost$ = this.store.select(BlogSelectors.selectBlogPost)
+        this.errorMessage$ = this.store.select(BlogSelectors.selectGetPostsError);
       }
     })
   }

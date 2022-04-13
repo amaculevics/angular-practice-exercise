@@ -1,0 +1,13 @@
+.new-message-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-message-form * {
+  width: 100%;
+}
+
+.alert.alert-danger {
+  color: #f44336;
+  padding-bottom: 5px;
+}
