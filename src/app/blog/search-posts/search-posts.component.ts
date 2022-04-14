@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { BlogActions } from '../store';
@@ -18,7 +18,7 @@ export class SearchPostsComponent implements OnInit {
   ngOnInit(): void {
     this.searchForm = this.fb.group({
       searchTerm: this.fb.control('')
-    })
+    });
   }
 
   search() {

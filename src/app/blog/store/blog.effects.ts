@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
-import { catchError, combineLatestWith, forkJoin, map, mergeMap, of, switchMap, withLatestFrom } from 'rxjs';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, forkJoin, map, mergeMap, of } from 'rxjs';
 import { Post } from '../models/post';
 import { PostService } from '../services/post.service';
-import { BlogActions, BlogSelectors } from './';
+import { BlogActions } from './';
 
 @Injectable({ providedIn: 'root' })
 export class BlogEffects {
-  constructor(private actions$: Actions, private postService: PostService, private store: Store) { }
+  constructor(private actions$: Actions, private postService: PostService) { }
 
   loadPosts$ = createEffect(() => {
     return this.actions$.pipe(

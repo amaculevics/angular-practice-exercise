@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 
@@ -11,9 +11,6 @@ import { BlogActions, BlogSelectors } from '../store';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  @Output()
-  toggleSidenav = new EventEmitter();
-
   posts$: Observable<Post[]> = of([]);
   errorMessage$: Observable<string | null> = of(null);
 
