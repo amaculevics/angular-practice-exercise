@@ -14,3 +14,5 @@ jobs:
 
       - name: Deploy
         run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
