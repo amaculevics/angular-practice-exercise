@@ -11,7 +11,7 @@ jobs:
         id: cache-node-dev-step
         uses: actions/cache@v3
         env:
-          cache-name: cache-node-modules-dev
+          cache-name: cache-node-modules-dev-1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
@@ -39,7 +39,7 @@ jobs:
         id: cache-node-step
         uses: actions/cache@v3
         env:
-          cache-name: cache-node-modules
+          cache-name: cache-node-modules-1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
