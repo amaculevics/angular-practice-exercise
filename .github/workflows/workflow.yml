@@ -1,5 +1,5 @@
 name: Build and Deploy
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -8,11 +8,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup node
+        id: setupNodeStep
         uses: actions/setup-node@v3
         with:
           cache: 'npm'
 
       - name: Install
+        if: steps.setupNodeStep.outputs.cache-hit != 'true'
         run: npm install --save-dev
 
       - name: Run Tests
@@ -29,11 +31,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup node
+        id: setupNodeStep
         uses: actions/setup-node@v3
         with:
           cache: 'npm'
 
       - name: Install
+        if: steps.setupNodeStep.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Deploy
