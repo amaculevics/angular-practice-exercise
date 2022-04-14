@@ -7,10 +7,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install and Build
-        run: |
-          npm ci
-          npm run build
+      - name: Install
+        run: npm ci --save-dev
 
       - name: Run Tests
         run: npm test-ci
