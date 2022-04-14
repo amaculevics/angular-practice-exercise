@@ -11,20 +11,18 @@ jobs:
         id: cache-node-dev-step
         uses: actions/cache@v3
         env:
-          cache-name: cache-node-modules-dev-1
+          cache-name: cache-node-modules-dev-2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
 
-      - name: Install
+      - name: Install npm packages
         run: npm install --save-dev
 
-      - name: Run Tests
-        run: |
-          npm run build
-          npm run test-ci
+      - name: Run tests
+        run: npm run test-ci
 
   deploy:
     runs-on: ubuntu-latest
@@ -40,14 +38,14 @@ jobs:
         id: cache-node-step
         uses: actions/cache@v3
         env:
-          cache-name: cache-node-modules-1
+          cache-name: cache-node-modules-2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
 
-      - name: Install
+      - name: Install npm packages
         run: npm install
 
       - name: Deploy
