@@ -23,7 +23,9 @@ jobs:
         run: npm install --save-dev
 
       - name: Run Tests
-        run: npm run test-ci
+        run: |
+          npm run build
+          npm run test-ci
 
   deploy:
     runs-on: ubuntu-latest
