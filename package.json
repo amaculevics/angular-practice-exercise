@@ -27,6 +27,7 @@
     "@ngrx/store": "^13.1.0",
     "@ngrx/store-devtools": "^13.1.0",
     "puppeteer": "^13.5.2",
+    "angular-cli-ghpages": "^1.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -44,7 +45,6 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
-    "angular-cli-ghpages": "^1.0.0",
     "eslint": "^8.12.0",
     "eslint-plugin-ngrx": "^2.0.0",
     "jasmine-core": "~4.0.0",
