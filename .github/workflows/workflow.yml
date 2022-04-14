@@ -9,9 +9,11 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v3
+        with:
+          - cache: 'npm'
 
       - name: Install
-        run: npm ci --save-dev
+        run: npm install --save-dev
 
       - name: Run Tests
         run: npm run test-ci
@@ -28,6 +30,11 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v3
+        with:
+          -cache: 'npm'
+
+      - name: Install
+        run: npm install
 
       - name: Deploy
         run: npm run deploy
