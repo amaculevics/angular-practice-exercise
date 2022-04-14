@@ -29,6 +29,7 @@ export class NewMessageDialogComponent implements OnInit {
   get message() { return this.form.get('message'); }
 
   save() {
+    this.form.markAllAsTouched();
     if (!this.form.valid) return;
     this.dialogRef.close(this.form.value);
   }
