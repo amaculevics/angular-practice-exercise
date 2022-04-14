@@ -11,7 +11,7 @@ jobs:
         run: npm ci --save-dev
 
       - name: Run Tests
-        run: npm test-ci
+        run: npm run test-ci
 
   deploy:
     runs-on: ubunru-latest
