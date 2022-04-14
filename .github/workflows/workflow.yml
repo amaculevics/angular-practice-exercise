@@ -19,7 +19,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - name: Install
-        if: steps.cache-node-dev-step.outputs.cache-hit != 'true'
         run: npm install --save-dev
 
       - name: Run Tests
@@ -49,7 +48,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - name: Install
-        if: steps.cache-node-step.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Deploy
